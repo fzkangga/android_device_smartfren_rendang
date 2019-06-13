@@ -398,6 +398,9 @@ int NativeSensorManager::getDataInfo() {
 				has_gyro = 1;
 				list->driver = new GyroSensor(list);
 				break;
+			case SENSOR_TYPE_PRESSURE:
+				list->driver = new PressureSensor(list);
+				break;
 			default:
 				list->driver = NULL;
 				ALOGE("No handle %d for this type sensor!", i);
@@ -738,9 +741,8 @@ int NativeSensorManager::setDelay(int handle, int64_t ns)
 
 	list->delay_ns = delay;
 
-	// min_delay sysfs entry is in microseconds
-	if (ns < list->sensor->minDelay * 1000) {
-		list->delay_ns = list->sensor->minDelay * 1000;
+	if (ns < list->sensor->minDelay) {
+		list->delay_ns = list->sensor->minDelay;
 	}
 
 	if (list->delay_ns == 0)
