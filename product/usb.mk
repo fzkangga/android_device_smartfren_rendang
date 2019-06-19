@@ -9,6 +9,11 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.usb.id.ums=2286 \
     ro.usb.id.ums_adb=2285
 
+#Secure
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
