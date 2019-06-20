@@ -18,4 +18,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false \
     persist.camera.hal.debug.mask=0 \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true \
     ro.camera.sensors=ov5670_q5v41b,ov5648_q5v22e_rendang,gc2355_rendang
